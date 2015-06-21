@@ -13,6 +13,7 @@
 		0A1CA9231B36EF5500BBEE63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A1CA9221B36EF5500BBEE63 /* Images.xcassets */; };
 		0A1CA9261B36EF5500BBEE63 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A1CA9241B36EF5500BBEE63 /* LaunchScreen.xib */; };
 		0A1CA9321B36EF5500BBEE63 /* ColorWheelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1CA9311B36EF5500BBEE63 /* ColorWheelTests.swift */; };
+		0A9640C11B36FD870005AFA9 /* ICColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9640C01B36FD870005AFA9 /* ICColorWheel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		0A1CA92B1B36EF5500BBEE63 /* ColorWheelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorWheelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A1CA9301B36EF5500BBEE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A1CA9311B36EF5500BBEE63 /* ColorWheelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheelTests.swift; sourceTree = "<group>"; };
+		0A9640C01B36FD870005AFA9 /* ICColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICColorWheel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				0A1CA9221B36EF5500BBEE63 /* Images.xcassets */,
 				0A1CA9241B36EF5500BBEE63 /* LaunchScreen.xib */,
 				0A1CA9191B36EF5500BBEE63 /* Supporting Files */,
+				0A9640C01B36FD870005AFA9 /* ICColorWheel.swift */,
 			);
 			path = ColorWheel;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A1CA91E1B36EF5500BBEE63 /* ViewController.swift in Sources */,
+				0A9640C11B36FD870005AFA9 /* ICColorWheel.swift in Sources */,
 				0A1CA91C1B36EF5500BBEE63 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +413,7 @@
 				0A1CA9371B36EF5500BBEE63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A1CA9381B36EF5500BBEE63 /* Build configuration list for PBXNativeTarget "ColorWheelTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				0A1CA93A1B36EF5500BBEE63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
