@@ -57,6 +57,8 @@ class ICColorWheel: UIView {
         var wedge : Int = 0
         var selectedWedge : Int = 0
         
+        self.userInteractionEnabled = true
+        
         // We initialize "selectedWedge" by iterating over the colors looking
         // for a match
         // This works for the color set available, though if we add more arbitrary
@@ -142,7 +144,7 @@ class ICColorWheel: UIView {
         // Note that for this application, there will always be a shadow. The only question
         // is whether we draw it (withShadow=true), or whether it's added to an image
         // layer by the caller
-        let radius = (size * paddingForShadow)
+        let radius = (size * paddingForShadow)/2.0
         
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(size,size), false, 0)
         let context = UIGraphicsGetCurrentContext()
@@ -186,8 +188,6 @@ class ICColorWheel: UIView {
     // Input processing
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
-        
         if let touch = touches.first as? UITouch {
             // Grab the first touch and find its position in the view
             let loc = touch.locationInView(self)
@@ -204,6 +204,8 @@ class ICColorWheel: UIView {
             imageView.image = ICColorWheel.createColorWheelImage(self.bounds.size.width,withShadow:false, selectedWedge: selectedWedge)
             
             didSelectCallback?(self,colors[selectedWedge])
+        } else {
+            super.touchesBegan(touches, withEvent: event)
         }
     }
     
