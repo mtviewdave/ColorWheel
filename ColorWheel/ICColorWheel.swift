@@ -75,7 +75,7 @@ class ICColorWheel: UIView {
         imageView.image = ICColorWheel.createColorWheelImage(self.bounds.width, withShadow:false,selectedWedge: selectedWedge)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("NSCoder not supported")
     }
     
@@ -101,7 +101,7 @@ class ICColorWheel: UIView {
         // Used to define the wedge outline style. Not used
         // if we're doing a colored wedge
         CGContextSetLineWidth(context, 10)
-        CGContextSetLineJoin(context, kCGLineJoinRound)
+        CGContextSetLineJoin(context, CGLineJoin.Round)
         
         
         let path = CGPathCreateMutable()
@@ -187,8 +187,8 @@ class ICColorWheel: UIView {
     
     // Input processing
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let touch = touches.first as? UITouch {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
             // Grab the first touch and find its position in the view
             let loc = touch.locationInView(self)
             let center = CGPointMake(self.bounds.width/2, self.bounds.height/2)
