@@ -69,7 +69,7 @@ class ICColorWheel: UIView {
                 selectedWedge = wedge
                 break
             }
-            wedge++
+            wedge += 1
         }
         
         imageView.image = ICColorWheel.createColorWheelImage(self.bounds.width, withShadow:false,selectedWedge: selectedWedge)
@@ -156,8 +156,13 @@ class ICColorWheel: UIView {
         
         // Draw each colored wedge
         // The number of wedges depends on the number of colors
-        for var s=0,angle=CGFloat(0);s<colors.count;s++,angle+=angleStep {
+        var angle = CGFloat(0)
+        var s = 0;
+
+        while s < colors.count {
             addWedge(angle, endAngle: angle + angleStep, color: colors[s].CGColor,size:size,radius:radius,fill:true)
+            angle+=angleStep
+            s += 1
         }
         
         // Draw the selection outline if required
