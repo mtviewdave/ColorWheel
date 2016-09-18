@@ -100,8 +100,8 @@ class ICColorWheel: UIView {
         
         // Used to define the wedge outline style. Not used
         // if we're doing a colored wedge
-        CGContextSetLineWidth(context, 10)
-        CGContextSetLineJoin(context, CGLineJoin.Round)
+        CGContextSetLineWidth(context!, 10)
+        CGContextSetLineJoin(context!, CGLineJoin.Round)
         
         
         let path = CGPathCreateMutable()
@@ -123,15 +123,15 @@ class ICColorWheel: UIView {
         CGPathAddArc(path, nil,centerX, centerY, interiorHoleRadius, endAngle, startAngle, (endAngle > startAngle))
         
         CGPathCloseSubpath(path)
-        CGContextAddPath(context, path)
+        CGContextAddPath(context!, path)
         
         
         if fill {
-            CGContextSetFillColorWithColor(context, color)
-            CGContextFillPath(context)
+            CGContextSetFillColorWithColor(context!, color)
+            CGContextFillPath(context!)
         } else {
-            CGContextSetStrokeColorWithColor(context, color)
-            CGContextStrokePath(context)
+            CGContextSetStrokeColorWithColor(context!, color)
+            CGContextStrokePath(context!)
         }
     }
     
@@ -149,7 +149,7 @@ class ICColorWheel: UIView {
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(size,size), false, 0)
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextBeginPath(context)
+        CGContextBeginPath(context!)
 
         // The number of radians each wedge consists of
         let angleStep  = numRadiansFullCircle / CGFloat(colors.count)
@@ -169,7 +169,7 @@ class ICColorWheel: UIView {
         if let selectedWedge = selectedWedge {
             let outlineColor = UIColor(red:32.0/255.0,green:64.0/255.0,blue:128.0/255.0,alpha:1.0).CGColor
             
-            CGContextSetShadowWithColor(context, CGSizeMake(0, 0), 5, UIColor.blackColor().CGColor)
+            CGContextSetShadowWithColor(context!, CGSizeMake(0, 0), 5, UIColor.blackColor().CGColor)
             addWedge(angleStep*CGFloat(selectedWedge), endAngle: (angleStep)*(1+CGFloat(selectedWedge)), color: outlineColor,size:size,radius:radius,fill:false)
         }
         
@@ -181,13 +181,13 @@ class ICColorWheel: UIView {
             UIGraphicsBeginImageContextWithOptions(CGSizeMake(size,size), false, 0)
             
             let context = UIGraphicsGetCurrentContext()
-            CGContextSetShadowWithColor(context, CGSizeMake(0,0), 2, UIColor.blackColor().CGColor)
-            colorWheelImage.drawInRect(CGRectMake(0, 0, size, size))
+            CGContextSetShadowWithColor(context!, CGSizeMake(0,0), 2, UIColor.blackColor().CGColor)
+            colorWheelImage!.drawInRect(CGRectMake(0, 0, size, size))
             colorWheelImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
         }
         
-        return colorWheelImage
+        return colorWheelImage!
     }
     
     // Input processing
